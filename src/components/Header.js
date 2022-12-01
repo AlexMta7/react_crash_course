@@ -1,29 +1,33 @@
-import PropTypes from "prop-types";
-import Button from "./Button";
+import PropTypes from 'prop-types'
+import { useLocation } from 'react-router-dom'
+import Button from './Button'
 
 const Header = ({ title, onAdd, showAdd }) => {
+  const location = useLocation()
   // const onClick = () => {
   //     console.log("click");
   // }
   return (
-    <header className="header">
+    <header className='header'>
       <h1>{title}</h1>
-      <Button
-        color={!showAdd ? "green" : "red"}
-        text={!showAdd ? "Add" : "Close"}
-        onClick={onAdd}
-      />
+      {location.pathname === '/' && (
+        <Button
+          color={!showAdd ? 'green' : 'red'}
+          text={!showAdd ? 'Add' : 'Close'}
+          onClick={onAdd}
+        />
+      )}
     </header>
-  );
-};
+  )
+}
 
 Header.defaultProps = {
-  title: "Task Tracker",
-};
+  title: 'Task Tracker',
+}
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-};
+}
 
 //CSS in JS
 // const headingStyle = {
@@ -31,4 +35,4 @@ Header.propTypes = {
 //     backgroundColor: 'black'
 // }
 
-export default Header;
+export default Header
