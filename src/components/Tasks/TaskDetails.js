@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { useParams, Navigate, useNavigate, useLocation } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import Button from './Button'
 
 const TaskDetails = () => {
   const [loading, setLoading] = useState(true)
   const [task, setTask] = useState({})
-  const [error, setError] = useState(null)
+  // const [error, setError] = useState(null)
 
   const params = useParams()
   const navigate = useNavigate()
